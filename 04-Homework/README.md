@@ -1,8 +1,12 @@
-## Web APIs: Code Quiz
+# 04 Web APIs: Code Quiz
 
-This app features a timed coding quiz on Javascript Fundamentals for students to test their skills on the materials covered in this unit. The Code Quiz contains multiple-choice questions and interactive coding challenges to help familiaze students with a typical coding assessment that is often required during the interiew process.      
+## Your Task
 
-I built this Coding Quiz using updated HTML and CSS features in Javascript. I designed the app to have a responsive user interface that runs in a browser and that with web APIs to store and return. The question are displayed in series prompts and the user must answer by clicking on a selection of input buttons. Input buttons are collected until until question or answered or time reacheso An algorithim to calculate the data and return score results. A time interval is used to create the timer.                  
+At some point in your journey to become a full-stack web developer, you’ll likely be asked to complete a coding assessment&mdash;perhaps as part of an interview process. A typical coding assessment includes both multiple-choice questions and interactive coding challenges. 
+
+To help familiarize you with these tests and allow you to use the skills covered in this unit, this week’s homework invites you to build a timed coding quiz with multiple-choice questions. This app will run in the browser and will feature dynamically updated HTML and CSS powered by JavaScript code that you write. It will have a clean, polished, and responsive user interface. 
+
+This week’s coursework will equip you with all the skills you need to succeed in this assignment.
 
 ## User Story
 
@@ -29,8 +33,6 @@ THEN I can save my initials and my score
 ```
 
 ## Mock-Up
-
-
 
 The following animation demonstrates the application functionality:
 
@@ -85,4 +87,3 @@ You are required to submit BOTH of the following for review:
 ---
 
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
-
