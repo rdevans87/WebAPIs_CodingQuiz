@@ -1,23 +1,56 @@
-*,
-*::before,
-*::after {
+* {
     box-sizing: border-box;
-}  
-
-html,
-body,
-.wrapper {
-    position: absolute;
-    left: 30%;
-    top: 20%;
-    width: 500px;
-    height: 500px;
-    border: 1px solid purple;
+    margin: 0;
+    padding:0;
 }
 
-body {
-    font-family: san-serif:
 
+.linear-gradient-background {
+    background-image: linear-gradient(
+      rgb(20, 19, 19),
+      rgba(46, 45, 45, 0.6)
+    );
+  }
+
+
+body {
+    font-family: san-serif;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: flex-start;
+    
+}
+
+
+#wrapper {
+    position: absolute;
+    left: 23%;
+    top: 15%;
+    bottom: 10%;
+    width: 600px;
+    height: 600px;
+    box-shadow: 0 8px 8px 0 black;
+}
+      
+
+.wrapper-color {
+        background-image: linear-gradient(
+        rgb(22, 100, 202),
+        rgb(10, 10, 10));
+        height: 150px;
+        max-width: 100%;
+    }
+
+
+
+.wrapper-header {
+    text-align: center;
+}
+
+
+
+#backToQuiz {
+    background-color: 
 }
 
 button[disabled] {
@@ -25,17 +58,24 @@ button[disabled] {
     background: #c0c7cf;
   }
 
+button :hover {   
+    background-color: rgb(20, 19, 19);
+
+}
+
+
   @media (max-width: 690px) {
     .btn {
       font-size: 1rem;
       margin: 16px 0px 0px 0px;
       padding: 10px 15px;
     }
+}
   
     #password {
       font-size: 1rem;
     }
-  }
+
   
   @media (max-width: 500px) {
     .btn {
