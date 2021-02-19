@@ -42,8 +42,7 @@ body {
     }
 
 
-
-.wrapper-header {
+.quizBox {
     text-align: center;
 }
 
@@ -72,11 +71,7 @@ button :hover {
     }
 }
   
-    #password {
-      font-size: 1rem;
-    }
 
-  
   @media (max-width: 500px) {
     .btn {
       font-size: 0.8rem;
