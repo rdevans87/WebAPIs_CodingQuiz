@@ -6,30 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Coding Quiz Challenge</title>
-    <link rel="stylesheet" type="text/css" href="Assets/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="Assets/css/style.css" />
 </head>
 
 <body class="linear-gradient-background">
-
+    <!--created a wrapper to for quiz content-->
     <section class="wrapper-color" id="wrapper">
         <div>
-    <a href="#">View Highscore</a> 
+            <div id="timeClock"></div>
+            <header>
+                <br>
+                <h1>Coding Quiz Challenge</h1>
+                <br>
+            </header>
         </div>
-        <header>
-            <h1>Coding Quiz Challenge</h1>
-        </header>
-            <div id="#quizDiv">
-                <h2>Test Your Skills in Javascript</h2>
-                <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
-                answers will penalize your score/time by ten seconds!</p>
-            </div>
-            <div class="quiz-footer">
-                <button id="startime" class="btn">Start Quiz</button>
-            </div>
+        <!--Div will contain quiz questions-->
+        <div id="quizQuestions">
+            <h2>Test Your Skills in Javascript</h2>
+            <br>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect
+                answers will penalize your score time by ten seconds!</p>
+            <br>
+            <!--user prompted to select quiz choices-->
+            <ul id="quizChoices"></ul>
+            <br>
+            <!--button to start button and activates time clock-->
+            <button id="startClock" class="start-btn">Start Quiz</button>
+            <!--button with link to highscore -->
+            <a href="highScores.html" class="high-score-btn"><button>View Highscore</button>
+            <br>
         </div>
-        </div>
-        <script src="Assets/js/script.js"></script>
-        </section>
+    </section>
+    <script src="Assets/js/script.js"></script>
 
 </body>
 </html>
