@@ -59,12 +59,8 @@ p {
 }
 
 
-#quizQuestion {
+#quizQuestions {
     text-align: center;
-}
-
-#backToQuiz {
-    background: rgb(22, 100, 202);
 }
 
 button {
@@ -87,7 +83,7 @@ button:hover {
 }
 
 
-.high-score-btn {
+.high-score-btn, .clear-btn {
     text-decoration-line: none;
     color: black;
 }
