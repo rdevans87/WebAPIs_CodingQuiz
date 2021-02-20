@@ -84,7 +84,7 @@ button:hover {
 
 
 
-.high-score-btn, .back-btn, .submit-btn {
+.high-score-btn, .back-btn {
     text-decoration-line: none;
     color: black;
 }
