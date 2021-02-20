@@ -9,9 +9,21 @@ clearScore.addEventListener("click", function () {
     location.reload();
 });
 
-backBtn.addEventListener("click", function () {
+
+var inputText = document.createElement("input");
+inputText.setAttribute("id", "initials");
+inputText.setAttribute("type", "text", "enter your" + initials + "here");
+document.body.appendChild (inputText);
+
+var submitButton = document.createElement("button");
+submitButton.setAttribute("class", ".submit-btn");
+submitButton.setAttribute("type", "submit");
+document.wrapper.appendChild (submitButton);
 
 
-});
+
+
+
+
 
 

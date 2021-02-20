@@ -2,22 +2,10 @@
 //created variables swith query selectors in index.html
 var querySelector = document.querySelector ("#wrapper")
 var timeInterval = document.querySelector("#timeInterval");
-
-
 var quizQuestion = document.querySelector("#quizQuestions");
 var startInterval = document.querySelector("#startInterval");
 
-//Event listener to clear scores 
-clearScore.addEventListener("click", function () {
-    localStorage.clear();
-    location.reload();
-});
-
-backBtn.addEventListener("click", function () {
-
-
-});
-
+/
 //created var for Quiz Array for coding questions and 
 var quizArray = [
     {
