@@ -1,5 +1,9 @@
-// declared variables for query selector HTML
 
+//created variables swith query selectors in index.html
+var querySelector = document.querySelector ("#wrapper")
+var timeInterval = document.querySelector("#timeInterval");
+var quizQuestion = document.querySelector("#quizQuestions");
+var startInterval = document.querySelector("#startInterval");
 
 //created var for Quiz Array for coding questions and 
 var quizArray = [
@@ -35,4 +39,10 @@ var quizArray = [
     },
     
     ]
+    
+    
+
+
+
+
     
