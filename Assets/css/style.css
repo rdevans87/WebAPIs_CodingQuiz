@@ -13,7 +13,7 @@
 
 
 body {
-    font-family: san-serif;
+    font-family: arial;
     flex-direction: column;
     min-height: 100vh;
     justify-content: flex-start;
@@ -79,11 +79,11 @@ button:hover {
 }
 
 .start-btn {
-    margin-left: 23%;
+    margin-left: 10px;
 }
 
 
-.high-score-btn, .clear-btn {
+.high-score-btn, .back-btn {
     text-decoration-line: none;
     color: black;
 }

@@ -1,8 +1,6 @@
 ## Web APIs: Code Quiz
 
-This app features a timed coding quiz on Javascript Fundamentals for students to test their skills on the materials covered in this unit. The Code Quiz contains multiple-choice questions and interactive coding challenges to help familiaze students with a typical coding assessment that is often required during the interiew process.      
-
-I built this Coding Quiz using updated HTML and CSS features in Javascript. I designed the app to have a responsive user interface that runs in a browser and that with web APIs to store and return. The question are displayed in series prompts and the user must answer by clicking on a selection of input buttons. Input buttons are collected until until question or answered or time reacheso An algorithim to calculate the data and return score results. A time interval is used to create the timer.                  
+This app features a timed coding quiz on Javascript Fundamentals for students to test their skills on the materials covered in this unit. The Code Quiz contains multiple-choice questions and interactive coding challenges to help familiaze students with a typical coding assessment that is often required during the interiew process. 
 
 ## User Story
 
@@ -12,7 +10,11 @@ I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
 ```
 
-## Acceptance Criteria
+## Summary
+
+This application was built using updated HTML and CSS features in Javascript to create a coding quiz that runs in a web browser. Several Javascript properties and methods were used to deliver the functionality outlined in the acceptance criteria. A function is called when a user clicks on a button to start the interactive quiz. This event triggers a time interval that appends the page with a series of multiple choice questions. Depending on which button choice the user clicks, logical comparison operators determine if the question is true based on a set of specified conditions. If the condition for an answer returns false, the interval is reduced until the time reaches zero or all questions are answered. The quiz results are set in local storage and retrieved in the appended highscores page. An input element is created along with a submit button to save user's initials accross multiple sessions. The user can start over and reset the quiz by clicking the clear button, which removes the saved data from local storage.    
+
+## Completed Acceptance Criteria
 
 ```
 GIVEN I am taking a code quiz
@@ -28,13 +30,10 @@ WHEN the game is over
 THEN I can save my initials and my score
 ```
 
-## Mock-Up
+## Project Deliverables 
 
+The following screenshots demonstrate the application functionality:
 
-
-The following animation demonstrates the application functionality:
-
-![A user clicks through an interactive coding quiz, then enters initials to save the high score before resetting and starting over.](./Assets/04-web-apis-homework-demo.gif)
 
 ## Grading Requirements
 
