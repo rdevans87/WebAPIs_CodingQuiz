@@ -32,7 +32,6 @@ THEN I can save my initials and my score
 
 ## MOCK UP
 
-file:///Users/ryanevans/homework4-february-20-2021/Images/Screen%20Shot%202021-02-20%20at%2011.01.37%20PM.png
 
 The following screenshots demonstrate the application functionality:
 
