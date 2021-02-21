@@ -1,11 +1,18 @@
-var querySelector = document.querySelector("#wrapper")
+//created var for Quiz Array for coding questions and 
+var score = 0;
+var quizIndex = 0;
+
+var intervalSeconds = 80;
+var intervalHold = 0;
+var intervalPenalty = 10;
+
+var querySelector = document.querySelector("#wrapper");
 var timeInterval = document.querySelector("#timeInterval");
 var quizQuestions = document.querySelector("#quizQuestions");
 var startInterval = document.querySelector("#startInterval");
+var quizChoices = document.querySelector("#quizChoices");
 
-
-//created var for Quiz Array for coding questions and 
-var quizArray = [
+var quiz = [
     {
         title: "Commonly used data type DO NOT include",
         choices: ["strings", "booleans", "alerts", "numbers"],
@@ -38,56 +45,45 @@ var quizArray = [
     },
 
 ];
-
-
-var score = 0;
-var quizIndex = 0;
-
-var intervalSeconds = 80;
-var intervalZero = 0;
-var intervalPenalty = 10;
-
 //timer starts when button is clicked
 startInterval.addEventListener("click", function () {
 
-    if (intervalZero === 0) {
-        intervalZero = setInterval(function () {
+    if (intervalHold === 0) {
+        intervalHold = setInterval(function () {
             intervalSeconds--;
             timeInterval.textContent = "Time: " + intervalSeconds;
 
             if (intervalSeconds <= 0) {
-                clearInterval(intervalZero);
-                quizOver();
+                clearInterval(intervalHold);
                 timeInterval.textContent = "Time's up!";
+                quizOver();
 
             }
         }, 1000);
     }
-    render(quizIndex);
+    render();
 });
 
 var ulElement = document.createElement("ul");
 
-function render(quizIndex) {
+function render() {
     quizQuestions.innerHTML = "";
     ulElement.innerHTML = "";
 
-    for (var i = 0; i < quizArray.length; i++) {
-        var questionPrompt = quizArray[quizIndex].title;
-        var choicesPrompt = quizArray[quizIndex].choices;
-        quizQuestions.textcontent = questionPrompt;
-
+    for (var i = 0; i < quiz.length; i++) {
+        var questionPrompt = quiz[quizIndex].title;
+        var choicesPrompt = quiz[quizIndex].choices;
+        quizQuestions.textContent = questionPrompt;
     }
 
     choicesPrompt.forEach(function (newItem) {
         var listChoices = document.createElement("li");
         listChoices.textContent = newItem;
-        quizQuesions.appendChild(listChoices);
+        quizQuesions.appendChild(quizChoices);
+        quizChoices.appendChild(listChoices);
         listChoices.addEventListener("click", (compare));
     })
 }
-
-
 
 function compare(event) {
     var userChoice = event.target;
@@ -95,9 +91,9 @@ function compare(event) {
     if (userChoice.matches("li")) {
 
         var divElement = document.createElement("div");
-        divElement.setAttribute("class", "divElement")
+        divElement.setAttribute("id", "divElement")
 
-        if (userChoice.textcontent == quizArray[quizIndex].answer) {
+        if (userChoice.textcontent == quiz[quizIndex].answer) {
             score++;
             divElement.textContent = "Correct!";
         } else {
@@ -105,76 +101,86 @@ function compare(event) {
             divElement.textContent = "Wrong!" + intervalPenalty + "second penalty.";
         }
     }
-
     quizIndex++;
 
-    if (quizIndex >= quizArray.length) {
-
-        quizOver();
-        divElement.textcontent = "Great Job!" + "you got " + score + "/" + quizArray.length + "Correct!";
-
-    } else if (quizIndex <= quizArray.length) {
-
-        divElement.textcontent = "Nice Try!" + "you got " + score + "/" + quizArray.length + "Correct!";
-
-    } else {
-        render(questionIndex);
-
-    }
-    questionsDiv.appendChild(createDiv);
+if (quizIndex >= quiz.length) {
+    quizOver();
+    divElement.textcontent = "Great Job!" + "you got " + score + "/" + quiz.length + "Correct!";
+} else if (quizIndex <= quiz.length) {
+    divElement.textcontent = "Nice Try!" + "you got " + score + "/" + quiz.length + "Correct!";
+} else {
+    render(questionIndex);
+}
+questionsDiv.appendChild(createDiv);
 
 }
 
-function quizDone() {
+function quizOver() {
     quizQuestions.innerHTML = "";
     timeInterval.innerHTML = "";
 
-    var headerEl = document.createElement("header")
-    headerEl.setAttribute("id", "headerEl");
-    headerEl.textcontent = "Quiz Over!";
-    quizQuestiona.appendChild(headerEl)
+    var h1Element = document.createElement("h1")
+    h1Element.setAttribute("id", "h1Element");
+    h1Element.textContent = "Quiz Over!";
 
-}
+    quizQuestiona.appendChild(headerEl);
 
-    var inputEl = document.createElement("input");
-    inputEl.setAttribute("id", "initials");
-    inputEl.setAttribute("type", "text", "enter your" + initials + "here!");
-    quizQuestions.appendChild(inputEl);
+    var pElement = document.createElement("p")
+    pElement.setattribute("id", "pElement");
 
-    var buttonEl = document.createElement("button");
-    buttonEl.setAttribute("id", "submit");
-    buttonEl.setAttribute("type", "submit");
-    quizQuestions.appendChild(buttonEl);
+    quizQuestions.appendChild(pElement)
 
-    buttonEl.addEventListener("click", function () {
+    if (intervalSeconds >= 0) {
+        var timeLeft = intervalSeconds;
+        var p2Element = document.createElement("p");
+        clearInterval(intervalHold);
+        pElement.textContent = "Your final score is: " + timeLeft;
 
-      var storedScores = localStorage.getItem("storedScores")
-      if (storedScores === null) {
-        storedScores === [];
-
-      } else { 
-          storedScores = JSON.parse(storedScores);    
-      }
-      storedScores.push()
-      var newScore = JSON.stringify(storedScores);
-      localStorage.setItem("storedScores", newScore);
-
-      window.location.replace("index2.html");
+        quizQuestions.appendChild(p2Element);
 
     }
 
+    var inputEl = document.createElement("input");
+    inputEl.setAttribute("id", "initials");
+    inputEl.setAttribute("type", "text");
+    inputEl.textcontent = "";
+    
+    quizQuestions.appendChild(inputEl);
 
+    var buttonEl = document.createElement("button");
+    buttonEl.setAttribute("type", "submit");
+    buttonEl.setAttribute("id", "submit");
+    buttonEl.textContent = "submit";
+    
+    quizQuestions.appendChild(buttonEl);
 
+buttonEl.addEventListener("click", function () {
+    var userInput = inputEl.value;
 
+    if (userInput === null) {
+    } else {
+        var finalScore = {
+            userInput: inputEl,
+            score: secondsLeft
+        }
 
+        var storedScores = localStorage.getItem("storedScores")
+        if (storedScores === null) {
+            storedScores === [];
 
+        } else {
+            storedScores = JSON.parse(storedScores);
+        }
+        storedScores.push(finalScore)
+        var newScore = JSON.stringify(storedScores);
+        localStorage.setItem("storedScores", newScore);
 
+        window.location.replace("index2.html");
+    }
 
+    });
 
-
-
-
-
+}
 
 
 
