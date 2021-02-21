@@ -1,15 +1,8 @@
-
-//created variables with query selectors in index.html
 var querySelector = document.querySelector("#wrapper")
 var timeInterval = document.querySelector("#timeInterval");
 var quizQuestions = document.querySelector("#quizQuestions");
 var startInterval = document.querySelector("#startInterval");
 
-
-var intervalSeconds = 80;
-var intervalZero = 0;   
-var quizIndex = 0;
-var intervalPenalty = 10;
 
 //created var for Quiz Array for coding questions and 
 var quizArray = [
@@ -46,6 +39,14 @@ var quizArray = [
 
 ];
 
+
+var score = 0;
+var quizIndex = 0;
+
+var intervalSeconds = 80;
+var intervalZero = 0;
+var intervalPenalty = 10;
+
 //timer starts when button is clicked
 startInterval.addEventListener("click", function () {
 
@@ -62,12 +63,12 @@ startInterval.addEventListener("click", function () {
             }
         }, 1000);
     }
-        render(quizIndex);
+    render(quizIndex);
 });
 
 var ulElement = document.createElement("ul");
 
-function render(quizIndex) { 
+function render(quizIndex) {
     quizQuestions.innerHTML = "";
     ulElement.innerHTML = "";
 
@@ -76,14 +77,17 @@ function render(quizIndex) {
         var choicesPrompt = quizArray[quizIndex].choices;
         quizQuestions.textcontent = questionPrompt;
 
-        choicesPrompt.forEach(function (newItem) {
+    }
+
+    choicesPrompt.forEach(function (newItem) {
         var listChoices = document.createElement("li");
         listChoices.textContent = newItem;
         quizQuesions.appendChild(listChoices);
         listChoices.addEventListener("click", (compare));
-})
-
+    })
 }
+
+
 
 function compare(event) {
     var userChoice = event.target;
@@ -93,54 +97,81 @@ function compare(event) {
         var divElement = document.createElement("div");
         divElement.setAttribute("class", "divElement")
 
-        if (userChoice.textcontent == quizArray[quizIndex].answer){
+        if (userChoice.textcontent == quizArray[quizIndex].answer) {
             score++;
             divElement.textContent = "Correct!";
-        } else { 
+        } else {
             intervalSeconds = intervalSeconds - intervalPenalty;
-            divElement.textContent = "Wrong!" + intervalPenalty + "second penalty.";  
+            divElement.textContent = "Wrong!" + intervalPenalty + "second penalty.";
+        }
     }
-}
 
-/// } function for compare event
-quizIndex++;
+    quizIndex++;
 
-if (quizIndex >= quizArray.length) {
+    if (quizIndex >= quizArray.length) {
 
-quizOver();
-divElement.textcontent = "Great Job!" + "you got " + score + "/" + quizArray.length + "Correct!";
+        quizOver();
+        divElement.textcontent = "Great Job!" + "you got " + score + "/" + quizArray.length + "Correct!";
 
- } else if (quizIndex <= quizArray.length) { 
+    } else if (quizIndex <= quizArray.length) {
 
- divElement.textcontent = "Nice Try!" + "you got " + score + "/" + quizArray.length + "Correct!";
+        divElement.textcontent = "Nice Try!" + "you got " + score + "/" + quizArray.length + "Correct!";
 
-} else { 
-render(questionIndex);
+    } else {
+        render(questionIndex);
 
-}
+    }
     questionsDiv.appendChild(createDiv);
 
 }
 
-function quizDone () {
+function quizDone() {
     quizQuestions.innerHTML = "";
     timeInterval.innerHTML = "";
 
-var headerEl = document.createElement("header")
-headerEl.setAttribute ("id", "headerEl");
-headerEl.textcontent = "Quiz Over!"
-
-quizQuestiona.appendChild(headerEl)
-
-}
+    var headerEl = document.createElement("header")
+    headerEl.setAttribute("id", "headerEl");
+    headerEl.textcontent = "Quiz Over!";
+    quizQuestiona.appendChild(headerEl)
 
 }
 
+    var inputEl = document.createElement("input");
+    inputEl.setAttribute("id", "initials");
+    inputEl.setAttribute("type", "text", "enter your" + initials + "here!");
+    quizQuestions.appendChild(inputEl);
 
- 
+    var buttonEl = document.createElement("button");
+    buttonEl.setAttribute("id", "submit");
+    buttonEl.setAttribute("type", "submit");
+    quizQuestions.appendChild(buttonEl);
+
+    buttonEl.addEventListener("click", function () {
+
+      var storedScores = localStorage.getItem("storedScores")
+      if (storedScores === null) {
+        storedScores === [];
+
+      } else { 
+          storedScores = JSON.parse(storedScores);    
+      }
+      storedScores.push()
+      var newScore = JSON.stringify(storedScores);
+      localStorage.setItem("storedScores", newScore);
+
+      window.location.replace("index2.html");
+
+    }
 
 
-    
+
+
+
+
+
+
+
+
 
 
 
