@@ -110,6 +110,14 @@ input {
     border: 1px solid black;
 }
 
+#submit { 
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+#pElement, #p2Element {
+ margin-top: 10px;
+} 
 
 
   @media (max-width: 690px) {
