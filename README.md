@@ -32,6 +32,11 @@ THEN I can save my initials and my score
 
 ## MOCK UP
 
+![image](https://user-images.githubusercontent.com/74195719/108615326-e0fcfc80-73d0-11eb-9ff9-f0d7a0b726bc.png)
+
+
+![image](https://user-images.githubusercontent.com/74195719/108615315-c4f95b00-73d0-11eb-8650-b956d882a7fb.png)
+
 
 The following screenshots demonstrate the application functionality:
 
