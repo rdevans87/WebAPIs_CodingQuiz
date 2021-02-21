@@ -1,5 +1,5 @@
 
-//created variables swith query selectors in index.html
+//created variables with query selectors in index.html
 var querySelector = document.querySelector("#wrapper")
 var timeInterval = document.querySelector("#timeInterval");
 var quizQuestions = document.querySelector("#quizQuestions");
@@ -46,6 +46,7 @@ var quizArray = [
 
 ];
 
+//timer starts when button is clicked
 startInterval.addEventListener("click", function () {
 
     if (intervalZero === 0) {
@@ -55,7 +56,7 @@ startInterval.addEventListener("click", function () {
 
             if (intervalSeconds <= 0) {
                 clearInterval(intervalZero);
-                timesUp();
+                quizOver();
                 timeInterval.textContent = "Time's up!";
 
             }
@@ -83,6 +84,66 @@ function render(quizIndex) {
 })
 
 }
+
+function compare(event) {
+    var userChoice = event.target;
+
+    if (userChoice.matches("li")) {
+
+        var divElement = document.createElement("div");
+        divElement.setAttribute("class", "divElement")
+
+        if (userChoice.textcontent == quizArray[quizIndex].answer){
+            score++;
+            divElement.textContent = "Correct!";
+        } else { 
+            intervalSeconds = intervalSeconds - intervalPenalty;
+            divElement.textContent = "Wrong!" + intervalPenalty + "second penalty.";  
+    }
+}
+
+/// } function for compare event
+quizIndex++;
+
+if (quizIndex >= quizArray.length) {
+
+quizOver();
+divElement.textcontent = "Great Job!" + "you got " + score + "/" + quizArray.length + "Correct!";
+
+ } else if (quizIndex <= quizArray.length) { 
+
+ divElement.textcontent = "Nice Try!" + "you got " + score + "/" + quizArray.length + "Correct!";
+
+} else { 
+render(questionIndex);
+
+}
+    questionsDiv.appendChild(createDiv);
+
+}
+
+function quizDone () {
+    quizQuestions.innerHTML = "";
+    timeInterval.innerHTML = "";
+
+var headerEl = document.createElement("header")
+headerEl.setAttribute ("id", "headerEl");
+headerEl.textcontent = "Quiz Over!"
+
+quizQuestiona.appendChild(headerEl)
+
+}
+
+}
+
+
+ 
+
+
+    
+
+
+
 
 
 

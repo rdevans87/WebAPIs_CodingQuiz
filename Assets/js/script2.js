@@ -4,21 +4,21 @@ var clearScore = document.querySelector("#clearScore");
 var BackToquiz = document.querySelector("#backBtn");
 
 
-
-
 var inputText = document.createElement("input");
 inputText.setAttribute("id", "initials");
 inputText.setAttribute("type", "text", "enter your" + initials + "here!");
 document.body.appendChild (inputText);
 
 var submitButton = document.createElement("button");
-submitButton.setAttribute("class", ".submit-btn");
+submitButton.setAttribute("id", "submit");
 submitButton.setAttribute("type", "submit");
 document.wrapper.appendChild (submitButton);
 
 
+
+
 submitButton.addEventListener("click", function () {
-var final = inputText.value;
+var userInput = inputText.value;
 if 
 
 
