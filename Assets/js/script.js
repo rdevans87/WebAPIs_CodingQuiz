@@ -103,7 +103,7 @@ function compare(event) {
 
     if (quizIndex >= quiz.length) {
         quizOver();
-        divElement.textContent = "Great Job!" + "you got " + score + "/" + quiz.length + "Correct!";
+        divElement.textContent = "Great Job!" + " you got " + score + "/" + quiz.length + " Correct!";
     } else {
         render(quizIndex);
     }

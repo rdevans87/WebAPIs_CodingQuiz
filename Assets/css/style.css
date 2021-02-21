@@ -82,7 +82,22 @@ button:hover {
     margin-left: 10px;
 }
 
+li {
 
+background-color:rgb(22, 100, 202);
+margin-top: 10px;
+margin-left: 30px;
+padding: 5px 15px;
+width: 80%;
+font-size: 18px;
+color: white;
+}
+
+li:hover {
+
+    background-color: rgb(20, 19, 19);
+    color: white;
+}
 
 .high-score-btn, .back-btn {
     text-decoration-line: none;
@@ -91,7 +106,7 @@ button:hover {
 
 input { 
     margin-bottom: 20px;
-    width: 50%;
+    width: 30%;
     border: 1px solid black;
 }
 
