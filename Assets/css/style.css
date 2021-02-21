@@ -85,12 +85,13 @@ button:hover {
 li {
 
 background-color:rgb(22, 100, 202);
-margin-top: 10px;
-margin-left: 30px;
+margin-top: 20px;
+margin-left: 150px;
 padding: 5px 15px;
-width: 80%;
+width: 50%;
 font-size: 18px;
 color: white;
+box-shadow: 0 4px 4px 0 black;
 }
 
 li:hover {
@@ -104,6 +105,11 @@ li:hover {
     color: black;
 }
 
+#divElement {
+    margin-top: 20px;
+
+}
+
 input { 
     margin-bottom: 20px;
     width: 30%;
@@ -111,6 +117,7 @@ input {
 }
 
 #submit { 
+    margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 20px;
 }

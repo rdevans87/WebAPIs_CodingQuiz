@@ -139,7 +139,7 @@ function quizOver() {
     var inputEl = document.createElement("input");
     inputEl.setAttribute("type", "text");
     inputEl.setAttribute("id", "initials");
-    inputEl.textcontent = "";
+    inputEl.textContent = "";
 
     quizQuestions.appendChild(inputEl);
 
@@ -153,7 +153,7 @@ function quizOver() {
     buttonEl.addEventListener("click", function () {
         var userInput = inputEl.value;
 
-        if (userInput) {
+        if (userInput === null) {
         } else {
             var finalScore = {
                 userInput: inputEl,
@@ -161,7 +161,7 @@ function quizOver() {
             }
             var storedScores = localStorage.getItem("storedScores")
             if (storedScores === null) {
-                storedScores === [];
+                storedScores = [];
             } else {
                 storedScores = JSON.parse(storedScores);
             }
@@ -170,6 +170,7 @@ function quizOver() {
             localStorage.setItem("storedScores", newScore);
 
             window.location.replace("index2.html");
+           
     }
 
 });

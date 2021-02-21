@@ -3,6 +3,7 @@ var highScore = document.querySelector("#highScore");
 var clearScore = document.querySelector("#clearScore");
 var BackToquiz = document.querySelector("#backBtn");
 
+function render(storedScores) {
 
 var storedScores = localStorage.getItem ("storedScores")
 storedScores = JSON.parse(storedScores);
@@ -23,6 +24,8 @@ clearScore.addEventListener("click", function () {
     localStorage.clear();
     location.reload();
 });
+
+}
 
 
 
