@@ -55,18 +55,16 @@ startInterval.addEventListener("click", function () {
 
             if (intervalSeconds <= 0) {
                 clearInterval(intervalHold);
-                timeInterval.textContent = "Time's up!";
                 quizOver();
-
+                timeInterval.textContent = "Time's up!" 
             }
         }, 1000);
     }
-    render();
+    render(quizIndex);
 });
 
-var ulElement = document.createElement("ul");
-
-function render() {
+function render(quizIndex) {
+    var ulElement = document.createElement("ul");
     quizQuestions.innerHTML = "";
     ulElement.innerHTML = "";
 
@@ -76,11 +74,11 @@ function render() {
         quizQuestions.textContent = questionPrompt;
     }
 
-    choicesPrompt.forEach(function (newItem) {
+        choicesPrompt.forEach(function (newItem) {
         var listChoices = document.createElement("li");
         listChoices.textContent = newItem;
-        quizQuesions.appendChild(quizChoices);
-        quizChoices.appendChild(listChoices);
+        quizQuestions.appendChild(ulElement);
+        ulElement.appendChild(listChoices);
         listChoices.addEventListener("click", (compare));
     })
 }
@@ -93,15 +91,15 @@ function compare(event) {
         var divElement = document.createElement("div");
         divElement.setAttribute("id", "divElement")
 
-        if (userChoice.textcontent == quiz[quizIndex].answer) {
+        if (userChoice.textContent == quiz[quizIndex].answer) {
             score++;
             divElement.textContent = "Correct!";
         } else {
             intervalSeconds = intervalSeconds - intervalPenalty;
             divElement.textContent = "Wrong!" + intervalPenalty + "second penalty.";
         }
-    }
     quizIndex++;
+    }
 
 if (quizIndex >= quiz.length) {
     quizOver();
@@ -109,9 +107,9 @@ if (quizIndex >= quiz.length) {
 } else if (quizIndex <= quiz.length) {
     divElement.textcontent = "Nice Try!" + "you got " + score + "/" + quiz.length + "Correct!";
 } else {
-    render(questionIndex);
+    render(quizIndex);
 }
-questionsDiv.appendChild(createDiv);
+quizQuestions.appendChild(divElement);
 
 }
 
@@ -123,10 +121,10 @@ function quizOver() {
     h1Element.setAttribute("id", "h1Element");
     h1Element.textContent = "Quiz Over!";
 
-    quizQuestiona.appendChild(headerEl);
+    quizQuestions.appendChild(h1Element);
 
     var pElement = document.createElement("p")
-    pElement.setattribute("id", "pElement");
+    pElement.setAttribute("id", "pElement");
 
     quizQuestions.appendChild(pElement)
 
@@ -143,7 +141,7 @@ function quizOver() {
     var inputEl = document.createElement("input");
     inputEl.setAttribute("id", "initials");
     inputEl.setAttribute("type", "text");
-    inputEl.textcontent = "";
+    inputEl.textcontent = "",  "Enter your initials!";
     
     quizQuestions.appendChild(inputEl);
 
@@ -161,7 +159,7 @@ buttonEl.addEventListener("click", function () {
     } else {
         var finalScore = {
             userInput: inputEl,
-            score: secondsLeft
+            score: timeLeft
         }
 
         var storedScores = localStorage.getItem("storedScores")
@@ -181,7 +179,3 @@ buttonEl.addEventListener("click", function () {
     });
 
 }
-
-
-
-
