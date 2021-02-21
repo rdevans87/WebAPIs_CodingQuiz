@@ -5,15 +5,11 @@ var timeInterval = document.querySelector("#timeInterval");
 var quizQuestions = document.querySelector("#quizQuestions");
 var startInterval = document.querySelector("#startInterval");
 
-//80 second to complete quiz
+
 var intervalSeconds = 80;
-//will timer position set to 0
-var intervalZero = 0;
-// holds question index    
+var intervalZero = 0;   
 var quizIndex = 0;
-// 10 second penalty for incorrect answeres
 var intervalPenalty = 10;
-// event listener to trigger timer 
 
 //created var for Quiz Array for coding questions and 
 var quizArray = [
@@ -68,10 +64,23 @@ startInterval.addEventListener("click", function () {
         render(quizIndex);
 });
 
+var ulElement = document.createElement("ul");
+
 function render(quizIndex) { 
+    quizQuestions.innerHTML = "";
+    ulElement.innerHTML = "";
 
+    for (var i = 0; i < quizArray.length; i++) {
+        var questionPrompt = quizArray[quizIndex].title;
+        var choicesPrompt = quizArray[quizIndex].choices;
+        quizQuestions.textcontent = questionPrompt;
 
-
+        choicesPrompt.forEach(function (newItem) {
+        var listChoices = document.createElement("li");
+        listChoices.textContent = newItem;
+        quizQuesions.appendChild(listChoices);
+        listChoices.addEventListener("click", (compare));
+})
 
 }
 
