@@ -14,7 +14,7 @@ var quizChoices = document.querySelector("#quizChoices");
 
 var quiz = [
     {
-        title: "Commonly used data type DO NOT include",
+        title: "Commonly used data type DO NOT include:",
         choices: ["strings", "booleans", "alerts", "numbers"],
         answer: "alerts"
     },
@@ -56,7 +56,7 @@ startInterval.addEventListener("click", function () {
             if (intervalSeconds <= 0) {
                 clearInterval(intervalHold);
                 quizOver();
-                timeInterval.textContent = "Time's up!" 
+                timeInterval.textContent = "Time's up!"
             }
         }, 1000);
     }
@@ -74,7 +74,7 @@ function render(quizIndex) {
         quizQuestions.textContent = questionPrompt;
     }
 
-        choicesPrompt.forEach(function (newItem) {
+    choicesPrompt.forEach(function (newItem) {
         var listChoices = document.createElement("li");
         listChoices.textContent = newItem;
         quizQuestions.appendChild(ulElement);
@@ -89,27 +89,25 @@ function compare(event) {
     if (userChoice.matches("li")) {
 
         var divElement = document.createElement("div");
-        divElement.setAttribute("id", "divElement")
+        divElement.setAttribute("id", "divElement");
 
-        if (userChoice.textContent == quiz[quizIndex].answer) {
+    if (userChoice.textContent == quiz[quizIndex].answer) {
             score++;
             divElement.textContent = "Correct!";
         } else {
             intervalSeconds = intervalSeconds - intervalPenalty;
-            divElement.textContent = "Wrong!" + intervalPenalty + "second penalty.";
+            divElement.textContent = "Wrong!" + intervalPenalty + " second penalty.";
         }
-    quizIndex++;
     }
+    quizIndex++;
 
-if (quizIndex >= quiz.length) {
-    quizOver();
-    divElement.textcontent = "Great Job!" + "you got " + score + "/" + quiz.length + "Correct!";
-} else if (quizIndex <= quiz.length) {
-    divElement.textcontent = "Nice Try!" + "you got " + score + "/" + quiz.length + "Correct!";
-} else {
-    render(quizIndex);
-}
-quizQuestions.appendChild(divElement);
+    if (quizIndex >= quiz.length) {
+        quizOver();
+        divElement.textContent = "Great Job!" + "you got " + score + "/" + quiz.length + "Correct!";
+    } else {
+        render(quizIndex);
+    }
+    quizQuestions.appendChild(divElement);
 
 }
 
@@ -126,7 +124,7 @@ function quizOver() {
     var pElement = document.createElement("p")
     pElement.setAttribute("id", "pElement");
 
-    quizQuestions.appendChild(pElement)
+    quizQuestions.appendChild(pElement);
 
     if (intervalSeconds >= 0) {
         var timeLeft = intervalSeconds;
@@ -139,43 +137,42 @@ function quizOver() {
     }
 
     var inputEl = document.createElement("input");
-    inputEl.setAttribute("id", "initials");
     inputEl.setAttribute("type", "text");
-    inputEl.textcontent = "",  "Enter your initials!";
-    
+    inputEl.setAttribute("id", "initials");
+    inputEl.textcontent = "";
+
     quizQuestions.appendChild(inputEl);
 
     var buttonEl = document.createElement("button");
     buttonEl.setAttribute("type", "submit");
     buttonEl.setAttribute("id", "submit");
     buttonEl.textContent = "submit";
-    
+
     quizQuestions.appendChild(buttonEl);
 
-buttonEl.addEventListener("click", function () {
-    var userInput = inputEl.value;
+    buttonEl.addEventListener("click", function () {
+        var userInput = inputEl.value;
 
-    if (userInput === null) {
-    } else {
-        var finalScore = {
-            userInput: inputEl,
-            score: timeLeft
-        }
-
-        var storedScores = localStorage.getItem("storedScores")
-        if (storedScores === null) {
-            storedScores === [];
-
+        if (userInput) {
         } else {
-            storedScores = JSON.parse(storedScores);
-        }
-        storedScores.push(finalScore)
-        var newScore = JSON.stringify(storedScores);
-        localStorage.setItem("storedScores", newScore);
+            var finalScore = {
+                userInput: inputEl,
+                score: timeLeft
+            }
+            var storedScores = localStorage.getItem("storedScores")
+            if (storedScores === null) {
+                storedScores === [];
+            } else {
+                storedScores = JSON.parse(storedScores);
+            }
+            storedScores.push(finalScore)
+            var newScore = JSON.stringify(storedScores);
+            localStorage.setItem("storedScores", newScore);
 
-        window.location.replace("index2.html");
+            window.location.replace("index2.html");
     }
 
-    });
+});
 
 }
+
