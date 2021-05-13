@@ -1,6 +1,6 @@
 ## Web APIs: Code Quiz
 
-This app features a timed coding quiz on Javascript Fundamentals for students to test their skills on the materials covered in this unit. The Code Quiz contains multiple-choice questions and interactive coding challenges to help familiaze students with a typical coding assessment that is often required during the interview process. 
+This app features a timed coding quiz on Javascript Fundamentals for students to test their skills on the materials covered in this unit. The Code Quiz contains multiple-choice questions and interactive coding challenges to help familiarize students with a typical coding assessment that is often required during the interview process. 
 
 Live URL: https://rdevans87.github.io/WebAPIs_CodingQuiz/
 
