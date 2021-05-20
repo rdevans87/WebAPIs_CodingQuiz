@@ -1,4 +1,4 @@
-//created var for Quiz Array for coding questions and 
+//created var for Quiz Array for coding questions
 var score = 0;
 var quizIndex = 0;
 
