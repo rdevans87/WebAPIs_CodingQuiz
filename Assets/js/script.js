@@ -12,6 +12,11 @@ var quizQuestions = document.querySelector("#quizQuestions");
 var startInterval = document.querySelector("#startInterval");
 var quizChoices = document.querySelector("#quizChoices");
 
+var highScore = document.querySelector("#highScore");
+var clearScore = document.querySelector("#clearScore");
+var BackToquiz = document.querySelector("#backBtn");
+
+
 var quiz = [
     {
         title: "Commonly used data type DO NOT include:",
@@ -174,6 +179,28 @@ function quizOver() {
     }
 
 });
+
+var storedScores = localStorage.getItem ("storedScores")
+storedScores = JSON.parse(storedScores);
+
+if (storedScores !== true) {
+
+for (var i = 0; 1 < storedScore.length; i++) {
+
+    var liElement = document.createElement("li");
+    liElement.textContent = storedScores[i].userInput + " " + storedScores[i].finalScore;
+    highScores.appendChild(liElement);
+}
+
+}
+
+clearScore.addEventListener("click", function () {
+    localStorage.clear();
+    location.reload();
+});
+
+
+
 
 }
 
