@@ -15,7 +15,9 @@ SO THAT I can gauge my progress compared to my peers
 ## Summary
 
 This application was built using updated HTML and CSS features in Javascript to create a coding quiz that runs in a web browser. Several Javascript properties and methods were used to deliver the functionality outlined in the acceptance criteria. A function is called when a user clicks on a button to start the interactive quiz.<br>
+
 This event triggers a time interval that appends the page with a series of multiple choice questions. Depending on which button choice the user clicks, logical comparison operators determine if the question is true based on a set of specified conditions. If the condition for an answer returns false, the interval is reduced until the time reaches zero or all questions are answered. The quiz results are set in local storage and retrieved in the appended highscores page.<br>
+
 An input element is created along with a submit button to save user's initials accross multiple sessions. The user can start over and reset the quiz by clicking the clear button, which removes the saved data from local storage.    
 
 ## Completed Acceptance Criteria
