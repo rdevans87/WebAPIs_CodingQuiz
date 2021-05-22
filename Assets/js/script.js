@@ -180,6 +180,9 @@ function quizOver() {
 
 });
 
+
+}
+
 var storedScores = localStorage.getItem ("storedScores")
 storedScores = JSON.parse(storedScores);
 
@@ -198,9 +201,3 @@ clearScore.addEventListener("click", function () {
     localStorage.clear();
     location.reload();
 });
-
-
-
-
-}
-
