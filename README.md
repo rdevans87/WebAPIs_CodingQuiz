@@ -34,15 +34,12 @@ THEN I can save my initials and my score
 
 ## The following screenshots demonstrate the application functionality:
 
+<img src="https://user-images.githubusercontent.com/74195719/108615326-e0fcfc80-73d0-11eb-9ff9-f0d7a0b726bc.png" width="450X650"/>
 
-![image](https://user-images.githubusercontent.com/74195719/108615326-e0fcfc80-73d0-11eb-9ff9-f0d7a0b726bc.png)
+<img src="https://user-images.githubusercontent.com/74195719/108639419-61b80900-7462-11eb-95f3-64dbd960cad7.png" width="450X650"/>
 
+<img src="https://user-images.githubusercontent.com/74195719/108639436-7e544100-7462-11eb-925b-2ed619e7bc8d.png" width="450X650"/>
 
-![image](https://user-images.githubusercontent.com/74195719/108639419-61b80900-7462-11eb-95f3-64dbd960cad7.png)
+<img src="https://user-images.githubusercontent.com/74195719/108615315-c4f95b00-73d0-11eb-8650-b956d882a7fb.png" width="450X650"/>
 
-
-![image](https://user-images.githubusercontent.com/74195719/108639436-7e544100-7462-11eb-925b-2ed619e7bc8d.png)
-
-
-![image](https://user-images.githubusercontent.com/74195719/108615315-c4f95b00-73d0-11eb-8650-b956d882a7fb.png)
 
