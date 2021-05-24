@@ -105,7 +105,7 @@ function compare(event) {
 
     if (quizIndex >= quiz.length) {
         quizOver();
-        divElement.textContent = "Great Job!" + " you got " + score + "/" + quiz.length + " Correct!";
+        divElement.innerHTML = "Great Job!" + " you got " + score + "/" + quiz.length + " Correct! " + "<br><br>" + "<ul>Quiz Answers: " + " alerts, parentheses, all of the above, quotes, console log</ul>";
     } else {
         render(quizIndex);
     }
