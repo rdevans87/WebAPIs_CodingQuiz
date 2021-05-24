@@ -41,14 +41,12 @@ var intervalSeconds = 80;
 var intervalHold = 0;
 var intervalPenalty = 10;
 
-var querySelector = document.querySelector("#wrapper");
+var wrapper = document.querySelector("#wrapper");
 var timeInterval = document.querySelector("#timeInterval");
 var quizQuestions = document.querySelector("#quizQuestions");
 
 var quizChoices = document.querySelector("#quizChoices");
-
 var highScore = document.querySelector("#highScore");
-
 var BackToquiz = document.querySelector("#backBtn");
 
 
@@ -68,17 +66,18 @@ startInterval.addEventListener("click", function () {
             }
         }, 1000);
     }
-    
     render(quizIndex);
 });
 
 function render(quizIndex) {
     
 var ulElement = document.createElement("ul");
+
     quizQuestions.innerHTML = "";
     ulElement.innerHTML = "";
 
     for (var i = 0; i < quiz.length; i++) {
+
         var questionPrompt = quiz[quizIndex].title;
         var choicesPrompt = quiz[quizIndex].choices;
         quizQuestions.textContent = questionPrompt;
@@ -103,10 +102,10 @@ function compare(event) {
 
     if (userChoice.textContent == quiz[quizIndex].answer) {
             score++;
-            divElement.textContent = "Correct!";
+            divElement.textContent = "Correct! The answer is: " + quiz[quizIndex].answer;
         } else {
             intervalSeconds = intervalSeconds - intervalPenalty;
-            divElement.textContent = "Wrong! The correct Answer is: " + quiz[quizIndex].answer;
+            divElement.textContent = "Wrong! The correct answer is: " + quiz[quizIndex].answer;
         }
     }
     quizIndex++;
