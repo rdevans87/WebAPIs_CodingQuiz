@@ -66,95 +66,99 @@ startInterval.addEventListener("click", function () {
         }, 1000);
     }
     render(quizIndex);
+});
 
+function render(quizIndex) {
 
-    function render(quizIndex) {
+    var ulElement = document.createElement("ul");
+    quizQuestions.innerHTML = "";
+    ulElement.innerHTML = "";
 
-        var ulElement = document.createElement("ul");
-
-        quizQuestions.innerHTML = "";
-        ulElement.innerHTML = "";
-
-        for (var i = 0; i < quiz.length; i++) {
-
-            var questionPrompt = quiz[quizIndex].title;
-            var choicesPrompt = quiz[quizIndex].choices;
-            quizQuestions.textContent = questionPrompt;
-        }
-
-        choicesPrompt.forEach(function (newItem) {
-            var listChoices = document.createElement("li");
-            listChoices.textContent = newItem;
-            quizQuestions.appendChild(ulElement);
-            ulElement.appendChild(listChoices);
-            listChoices.addEventListener("click", (compare));
-        });
-    };
-
-    function compare(event) {
-        var userChoice = event.target;
-
-        if (userChoice.matches("li")) {
-
-            var divElement = document.createElement("div");
-            divElement.setAttribute("id", "divElement");
-
-            if (userChoice.textContent == quiz[quizIndex].answer) {
-                score++;
-                divElement.textContent = "Correct! The answer is: " + quiz[quizIndex].answer;
-            } else {
-                intervalSeconds = intervalSeconds - intervalPenalty;
-                divElement.textContent = "Wrong! The correct answer is: " + quiz[quizIndex].answer;
-            }
-        }
-        quizIndex++;
-
-        if (quizIndex >= quiz.length) {
-            quizOver();
-            divElement.textContent = "Great Job!" + " you got " + score + "/" + quiz.length + " Correct!";
-        } else {
-            render(quizIndex);
-        }
-        quizQuestions.appendChild(divElement);
-
+    for (var i = 0; i < quiz.length; i++) {
+        var questionPrompt = quiz[quizIndex].title;
+        var choicesPrompt = quiz[quizIndex].choices;
+        quizQuestions.textContent = questionPrompt;
     }
 
-    function quizOver() {
-        quizQuestions.innerHTML = "";
-        timeInterval.innerHTML = "";
+    choicesPrompt.forEach(function (newItem) {
+        var listChoices = document.createElement("li");
+        listChoices.textContent = newItem;
+        quizQuestions.appendChild(ulElement);
+        ulElement.appendChild(listChoices);
+        listChoices.addEventListener("click", (compare));
+    })
+}
 
-        var h1Element = document.createElement("h1")
-        h1Element.setAttribute("id", "h1Element");
-        h1Element.textContent = "Quiz Over!";
+function compare(event) {
+    var userChoice = event.target;
 
-        quizQuestions.appendChild(h1Element);
+    if (userChoice.matches("li")) {
 
-        var pElement = document.createElement("p")
-        pElement.setAttribute("id", "pElement");
+        var divElement = document.createElement("div");
+        divElement.setAttribute("id", "divElement");
 
-        quizQuestions.appendChild(pElement);
+        if (userChoice.textContent == quiz[quizIndex].answer) {
+            score++;
+            divElement.textContent = "Correct! The answer is: " + quiz[quizIndex].answer;
+        } else {
+            intervalSeconds = intervalSeconds - intervalPenalty;
+            divElement.textContent = "Wrong! The correct answer is: " + quiz[quizIndex].answer;
+        }
+    }
+    quizIndex++;
 
-        if (intervalSeconds >= 0) {
-            var timeLeft = intervalSeconds;
-            var p2Element = document.createElement("p");
-            clearInterval(intervalHold);
-            pElement.textContent = "Your final score is: " + timeLeft;
+    if (quizIndex >= quiz.length) {
+        quizOver();
+        divElement.textContent = "Great Job!" + " you got " + score + "/" + quiz.length + " Correct!";
+    } else {
+        render(quizIndex);
+    }
+    quizQuestions.appendChild(divElement);
+}
 
-            quizQuestions.appendChild(p2Element);
+function quizOver() {
+    quizQuestions.innerHTML = "";
+    timeInterval.innerHTML = "";
 
-        };
+    var h1Element = document.createElement("h1")
+    h1Element.setAttribute("id", "h1Element");
+    h1Element.textContent = "Quiz Over!";
+
+    quizQuestions.appendChild(h1Element);
+
+    var pElement = document.createElement("p")
+    pElement.setAttribute("id", "pElement");
+
+    quizQuestions.appendChild(pElement);
+
+    if (intervalSeconds >= 0) {
+        var timeLeft = intervalSeconds;
+        var p2Element = document.createElement("p");
+        clearInterval(intervalHold);
+        pElement.textContent = "Your final score is: " + timeLeft;
+
+        quizQuestions.appendChild(p2Element);
+    }
+
+    //create label for user input
+    var labelInput = document.createElement("label");
+    labelInput.setAttribute("id", "labelInput");
+    labelInput.textContent = "Enter initals: ";
+
+    quizQuestions.appendChild(labelInput);
+
 
     var inputEl = document.createElement("input");
     inputEl.setAttribute("type", "text");
-    inputEl.setAttribute("id", "initials");
+    inputEl.setAttribute("id", "userInput");
     inputEl.textContent = "";
 
     quizQuestions.appendChild(inputEl);
 
     var buttonEl = document.createElement("button");
-    buttonEl.setAttribute("type", "submit");
-    buttonEl.setAttribute("id", "submit");
-    buttonEl.textContent = "submit";
+    buttonEl.setAttribute("type", "Submit");
+    buttonEl.setAttribute("id", "Submit");
+    buttonEl.textContent = "Submit";
 
     quizQuestions.appendChild(buttonEl);
 
@@ -162,9 +166,9 @@ startInterval.addEventListener("click", function () {
         var userInput = inputEl.value;
         // console.log(inputEl.value)
 
-            if (userInput === null) {
+        if (userInput === null) {
             // console.log ("no value entered")
-            } else {
+        } else {
             var finalScore = {
                 userInput: userInput,
                 score: timeLeft
@@ -182,8 +186,9 @@ startInterval.addEventListener("click", function () {
 
             window.location.replace("./index2.html");
         };
-
     });
+
+
     var clearScore = document.querySelector("#clearScore");
 
     clearScore.addEventListener("click", function () {
@@ -197,17 +202,17 @@ startInterval.addEventListener("click", function () {
 
     if (storedScores !== null) {
 
-            for (var i = 0; i < storedScore.length; i++) {
+        for (var i = 0; i < storedScore.length; i++) {
 
             var liElement = document.createElement("li");
             liElement.textContent = storedScores[i].userInput + " - " + storedScores[i].score;
             highScores.appendChild(liElement);
-         }
-    
-    )};
+        }
 
-}        // document.getElementById("clearScore").onclick = clearScore;
+    };
 
+    // document.getElementById("clearScore").onclick = clearScore;
+}});
 
 
 
