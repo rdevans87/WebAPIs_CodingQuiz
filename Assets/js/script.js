@@ -1,22 +1,3 @@
-//created var for Quiz Array for coding questions
-var score = 0;
-var quizIndex = 0;
-
-var intervalSeconds = 80;
-var intervalHold = 0;
-var intervalPenalty = 10;
-
-var querySelector = document.querySelector("#wrapper");
-var timeInterval = document.querySelector("#timeInterval");
-var quizQuestions = document.querySelector("#quizQuestions");
-
-var quizChoices = document.querySelector("#quizChoices");
-
-var highScore = document.querySelector("#highScore");
-
-var BackToquiz = document.querySelector("#backBtn");
-
-
 var quiz = [
     {
         title: "Commonly used data type DO NOT include:",
@@ -52,7 +33,26 @@ var quiz = [
 ];
 
 
-var startInterval = document.getElementById("#startInterval");
+//created var for Quiz Array for coding questions
+var score = 0;
+var quizIndex = 0;
+
+var intervalSeconds = 80;
+var intervalHold = 0;
+var intervalPenalty = 10;
+
+var querySelector = document.querySelector("#wrapper");
+var timeInterval = document.querySelector("#timeInterval");
+var quizQuestions = document.querySelector("#quizQuestions");
+
+var quizChoices = document.querySelector("#quizChoices");
+
+var highScore = document.querySelector("#highScore");
+
+var BackToquiz = document.querySelector("#backBtn");
+
+
+var startInterval = document.querySelector(".start-btn");
 //timer starts when button is clicked
 startInterval.addEventListener("click", function () {
 
@@ -192,7 +192,7 @@ function quizOver() {
 }
 
 
-var clearScore = document.getElementById("#clearScore");
+var clearScore = document.querySelector("#clearScore");
 
 clearScore.addEventListener("click", function () {
     localStorage.clear();
