@@ -9,11 +9,11 @@ var intervalPenalty = 10;
 var querySelector = document.querySelector("#wrapper");
 var timeInterval = document.querySelector("#timeInterval");
 var quizQuestions = document.querySelector("#quizQuestions");
-var startInterval = document.querySelector("#startInterval");
+
 var quizChoices = document.querySelector("#quizChoices");
 
 var highScore = document.querySelector("#highScore");
-var clearScore = document.querySelector("#clearScore");
+
 var BackToquiz = document.querySelector("#backBtn");
 
 
@@ -51,6 +51,8 @@ var quiz = [
 
 ];
 
+
+var startInterval = document.getElementById("#startInterval");
 //timer starts when button is clicked
 startInterval.addEventListener("click", function () {
 
@@ -189,6 +191,8 @@ function quizOver() {
  
 }
 
+
+var clearScore = document.getElementById("#clearScore");
 
 clearScore.addEventListener("click", function () {
     localStorage.clear();
