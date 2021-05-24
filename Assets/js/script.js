@@ -183,21 +183,26 @@ function quizOver() {
 
 }
 
+
+clearScore.addEventListener("click", function () {
+    localStorage.clear();
+    location.reload();
+
+});
 var storedScores = localStorage.getItem ("storedScores")
 storedScores = JSON.parse(storedScores);
 
 if (storedScores !== null) {
 
-for (var i = 0; 1 < storedScore.length; i++) {
+for (var i = 0; i < storedScore.length; i++) {
 
     var liElement = document.createElement("li");
     liElement.textContent = storedScores[i].userInput + " " + storedScores[i].finalScore;
     highScores.appendChild(liElement);
 }
 
+document.getElementById("clearScore").onclick = clearScore;
+
 }
 
-clearScore.addEventListener("click", function () {
-    localStorage.clear();
-    location.reload();
-});
+
