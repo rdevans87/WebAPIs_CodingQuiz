@@ -1,14 +1,14 @@
 var quiz = [
     {
-        title: "Commonly used data type DO NOT include:",
+        title: "Commonly used data types DO NOT include:",
         choices: ["strings", "booleans", "alerts", "numbers"],
         answer: "alerts"
     },
 
     {
         title: "The condition in an if/else statement is enclosed within ____.",
-        choices: ["quotes", "curly brackets", "parentheses", "square brackets"],
-        answer: "parentheses"
+        choices: ["quotes", "curly brackets", "parenthesis", "square brackets"],
+        answer: "parenthesis"
     },
 
     {
@@ -25,7 +25,7 @@ var quiz = [
     },
 
     {
-        title: "A very useful tool for used during development and debugging for printing content to the debugger is:",
+        title: "A very useful tool used during development and debugging for printing content to the debugger is ____:",
         choices: ["Javascript", "terminal/bash", "for loops", "console log"],
         answer: "console log"
     },
@@ -105,7 +105,7 @@ function compare(event) {
 
     if (quizIndex >= quiz.length) {
         quizOver();
-        divElement.innerHTML = "Great Job!" + " you got " + score + "/" + quiz.length + " Correct! " + "<br><br>" + "<ul>Quiz Answers: " + " alerts, parentheses, all of the above, quotes, console log</ul>";
+        divElement.innerHTML = "Great Job!" + " you got " + score + "/" + quiz.length + " Correct! " + "<br><br>" + "<ul>Quiz Answers: " + " alerts, parenthesis, all of the above, quotes, console log</ul>";
     } else {
         render(quizIndex);
     }
