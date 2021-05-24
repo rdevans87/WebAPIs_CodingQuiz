@@ -41,11 +41,11 @@ var intervalSeconds = 80;
 var intervalHold = 0;
 var intervalPenalty = 10;
 
-var wrapper = document.querySelector("#wrapper");
+// var wrapper = document.querySelector("#wrapper");
 var timeInterval = document.querySelector("#timeInterval");
 var quizQuestions = document.querySelector("#quizQuestions");
 
-var quizChoices = document.querySelector("#quizChoices");
+// var quizChoices = document.querySelector("#quizChoices");
 var highScore = document.querySelector("#highScore");
 var BackToquiz = document.querySelector("#backBtn");
 
@@ -164,12 +164,13 @@ function quizOver() {
             // console.log(inputEl.value)
 
         if (userInput === null) {
-            console.log ("no value entered")
+            // console.log ("no value entered")
         } else {
             var finalScore = {
                 userInput: userInput,
                 score: timeLeft
             }
+            console.log(finalScore)
             var storedScores = localStorage.getItem("storedScores")
             if (storedScores === null) {
                 storedScores = [];
@@ -180,16 +181,14 @@ function quizOver() {
             var newScore = JSON.stringify(storedScores);
             localStorage.setItem("storedScores", newScore);
 
-            window.location.replace("index2.html");
+            window.location.replace("./index2.html");
            
     }
 
 });
 
- 
 }
-
-
+ 
 var clearScore = document.querySelector("#clearScore");
 
 clearScore.addEventListener("click", function () {
@@ -197,6 +196,7 @@ clearScore.addEventListener("click", function () {
     location.reload();
 
 });
+
 var storedScores = localStorage.getItem ("storedScores")
 storedScores = JSON.parse(storedScores);
 
@@ -205,10 +205,12 @@ if (storedScores !== null) {
 for (var i = 0; i < storedScore.length; i++) {
 
     var liElement = document.createElement("li");
-    liElement.textContent = storedScores[i].userInput + " - " + storedScores[i].finalScore;
+    liElement.textContent = storedScores[i].userInput + " - " + storedScores[i].score;
     highScores.appendChild(liElement);
 }
 
-document.getElementById("clearScore").onclick = clearScore;
+// document.getElementById("clearScore").onclick = clearScore;
 
-}
+};
+
+
