@@ -66,11 +66,13 @@ startInterval.addEventListener("click", function () {
             }
         }, 1000);
     }
+    
     render(quizIndex);
 });
 
 function render(quizIndex) {
-    var ulElement = document.createElement("ul");
+    
+var ulElement = document.createElement("ul");
     quizQuestions.innerHTML = "";
     ulElement.innerHTML = "";
 
@@ -87,7 +89,7 @@ function render(quizIndex) {
         ulElement.appendChild(listChoices);
         listChoices.addEventListener("click", (compare));
     })
-}
+};
 
 function compare(event) {
     var userChoice = event.target;
@@ -102,7 +104,7 @@ function compare(event) {
             divElement.textContent = "Correct!";
         } else {
             intervalSeconds = intervalSeconds - intervalPenalty;
-            divElement.textContent = "Wrong!" + intervalPenalty + " second penalty.";
+            divElement.textContent = "Wrong! The correct Answer is: " + quiz[quizIndex].answer;
         }
     }
     quizIndex++;
@@ -114,6 +116,7 @@ function compare(event) {
         render(quizIndex);
     }
     quizQuestions.appendChild(divElement);
+
 
 }
 
@@ -158,8 +161,10 @@ function quizOver() {
 
     buttonEl.addEventListener("click", function () {
         var userInput = inputEl.value;
+            // console.log(inputEl.value)
 
         if (userInput === null) {
+            console.log ("no value enters")
         } else {
             var finalScore = {
                 userInput: inputEl,
@@ -181,7 +186,7 @@ function quizOver() {
 
 });
 
-
+ 
 }
 
 
@@ -205,5 +210,3 @@ for (var i = 0; i < storedScore.length; i++) {
 document.getElementById("clearScore").onclick = clearScore;
 
 }
-
-
