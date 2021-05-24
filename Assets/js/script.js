@@ -53,7 +53,6 @@ var BackToquiz = document.querySelector("#backBtn");
 var startInterval = document.querySelector(".start-btn");
 //timer starts when button is clicked
 startInterval.addEventListener("click", function () {
-
     if (intervalHold === 0) {
         intervalHold = setInterval(function () {
             intervalSeconds--;
@@ -62,88 +61,88 @@ startInterval.addEventListener("click", function () {
             if (intervalSeconds <= 0) {
                 clearInterval(intervalHold);
                 quizOver();
-                timeInterval.textContent = "Time's up!"
+                timeInterval.textContent = "Time's up!";
             }
         }, 1000);
     }
     render(quizIndex);
-});
 
-function render(quizIndex) {
-    
-var ulElement = document.createElement("ul");
 
-    quizQuestions.innerHTML = "";
-    ulElement.innerHTML = "";
+    function render(quizIndex) {
 
-    for (var i = 0; i < quiz.length; i++) {
+        var ulElement = document.createElement("ul");
 
-        var questionPrompt = quiz[quizIndex].title;
-        var choicesPrompt = quiz[quizIndex].choices;
-        quizQuestions.textContent = questionPrompt;
-    }
+        quizQuestions.innerHTML = "";
+        ulElement.innerHTML = "";
 
-    choicesPrompt.forEach(function (newItem) {
-        var listChoices = document.createElement("li");
-        listChoices.textContent = newItem;
-        quizQuestions.appendChild(ulElement);
-        ulElement.appendChild(listChoices);
-        listChoices.addEventListener("click", (compare));
-    })
-};
+        for (var i = 0; i < quiz.length; i++) {
 
-function compare(event) {
-    var userChoice = event.target;
-
-    if (userChoice.matches("li")) {
-
-       var divElement = document.createElement("div");
-        divElement.setAttribute("id", "divElement");
-
-    if (userChoice.textContent == quiz[quizIndex].answer) {
-            score++;
-            divElement.textContent = "Correct! The answer is: " + quiz[quizIndex].answer;
-        } else {
-            intervalSeconds = intervalSeconds - intervalPenalty;
-            divElement.textContent = "Wrong! The correct answer is: " + quiz[quizIndex].answer;
+            var questionPrompt = quiz[quizIndex].title;
+            var choicesPrompt = quiz[quizIndex].choices;
+            quizQuestions.textContent = questionPrompt;
         }
+
+        choicesPrompt.forEach(function (newItem) {
+            var listChoices = document.createElement("li");
+            listChoices.textContent = newItem;
+            quizQuestions.appendChild(ulElement);
+            ulElement.appendChild(listChoices);
+            listChoices.addEventListener("click", (compare));
+        });
+    };
+
+    function compare(event) {
+        var userChoice = event.target;
+
+        if (userChoice.matches("li")) {
+
+            var divElement = document.createElement("div");
+            divElement.setAttribute("id", "divElement");
+
+            if (userChoice.textContent == quiz[quizIndex].answer) {
+                score++;
+                divElement.textContent = "Correct! The answer is: " + quiz[quizIndex].answer;
+            } else {
+                intervalSeconds = intervalSeconds - intervalPenalty;
+                divElement.textContent = "Wrong! The correct answer is: " + quiz[quizIndex].answer;
+            }
+        }
+        quizIndex++;
+
+        if (quizIndex >= quiz.length) {
+            quizOver();
+            divElement.textContent = "Great Job!" + " you got " + score + "/" + quiz.length + " Correct!";
+        } else {
+            render(quizIndex);
+        }
+        quizQuestions.appendChild(divElement);
+
     }
-    quizIndex++;
 
-    if (quizIndex >= quiz.length) {
-        quizOver();
-        divElement.textContent = "Great Job!" + " you got " + score + "/" + quiz.length + " Correct!";
-    } else {
-        render(quizIndex);
-    }
-    quizQuestions.appendChild(divElement);
+    function quizOver() {
+        quizQuestions.innerHTML = "";
+        timeInterval.innerHTML = "";
 
-}
+        var h1Element = document.createElement("h1")
+        h1Element.setAttribute("id", "h1Element");
+        h1Element.textContent = "Quiz Over!";
 
-function quizOver() {
-    quizQuestions.innerHTML = "";
-    timeInterval.innerHTML = "";
+        quizQuestions.appendChild(h1Element);
 
-    var h1Element = document.createElement("h1")
-    h1Element.setAttribute("id", "h1Element");
-    h1Element.textContent = "Quiz Over!";
+        var pElement = document.createElement("p")
+        pElement.setAttribute("id", "pElement");
 
-    quizQuestions.appendChild(h1Element);
+        quizQuestions.appendChild(pElement);
 
-    var pElement = document.createElement("p")
-    pElement.setAttribute("id", "pElement");
+        if (intervalSeconds >= 0) {
+            var timeLeft = intervalSeconds;
+            var p2Element = document.createElement("p");
+            clearInterval(intervalHold);
+            pElement.textContent = "Your final score is: " + timeLeft;
 
-    quizQuestions.appendChild(pElement);
+            quizQuestions.appendChild(p2Element);
 
-    if (intervalSeconds >= 0) {
-        var timeLeft = intervalSeconds;
-        var p2Element = document.createElement("p");
-        clearInterval(intervalHold);
-        pElement.textContent = "Your final score is: " + timeLeft;
-
-        quizQuestions.appendChild(p2Element);
-
-    }
+        };
 
     var inputEl = document.createElement("input");
     inputEl.setAttribute("type", "text");
@@ -161,11 +160,11 @@ function quizOver() {
 
     buttonEl.addEventListener("click", function () {
         var userInput = inputEl.value;
-            // console.log(inputEl.value)
+        // console.log(inputEl.value)
 
-        if (userInput === null) {
+            if (userInput === null) {
             // console.log ("no value entered")
-        } else {
+            } else {
             var finalScore = {
                 userInput: userInput,
                 score: timeLeft
@@ -182,35 +181,33 @@ function quizOver() {
             localStorage.setItem("storedScores", newScore);
 
             window.location.replace("./index2.html");
-           
-    }
+        };
 
-});
+    });
+    var clearScore = document.querySelector("#clearScore");
 
-}
- 
-var clearScore = document.querySelector("#clearScore");
+    clearScore.addEventListener("click", function () {
+        localStorage.clear();
+        location.reload();
 
-clearScore.addEventListener("click", function () {
-    localStorage.clear();
-    location.reload();
+    });
 
-});
+    var storedScores = localStorage.getItem("storedScores")
+    storedScores = JSON.parse(storedScores);
 
-var storedScores = localStorage.getItem ("storedScores")
-storedScores = JSON.parse(storedScores);
+    if (storedScores !== null) {
 
-if (storedScores !== null) {
+            for (var i = 0; i < storedScore.length; i++) {
 
-for (var i = 0; i < storedScore.length; i++) {
+            var liElement = document.createElement("li");
+            liElement.textContent = storedScores[i].userInput + " - " + storedScores[i].score;
+            highScores.appendChild(liElement);
+         }
+    
+    )};
 
-    var liElement = document.createElement("li");
-    liElement.textContent = storedScores[i].userInput + " - " + storedScores[i].score;
-    highScores.appendChild(liElement);
-}
+}        // document.getElementById("clearScore").onclick = clearScore;
 
-// document.getElementById("clearScore").onclick = clearScore;
 
-};
 
 
