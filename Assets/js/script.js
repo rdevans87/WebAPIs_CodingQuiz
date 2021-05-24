@@ -50,6 +50,7 @@ var quiz = [
     },
 
 ];
+
 //timer starts when button is clicked
 startInterval.addEventListener("click", function () {
 
@@ -197,7 +198,7 @@ if (storedScores !== null) {
 for (var i = 0; i < storedScore.length; i++) {
 
     var liElement = document.createElement("li");
-    liElement.textContent = storedScores[i].userInput + " " + storedScores[i].finalScore;
+    liElement.textContent = storedScores[i].userInput + " - " + storedScores[i].finalScore;
     highScores.appendChild(liElement);
 }
 
