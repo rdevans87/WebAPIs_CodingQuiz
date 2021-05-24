@@ -46,7 +46,7 @@ var timeInterval = document.querySelector("#timeInterval");
 var quizQuestions = document.querySelector("#quizQuestions");
 
 // var quizChoices = document.querySelector("#quizChoices");
-var highScore = document.querySelector("#highScore");
+var highScores = document.querySelector("#highScores");
 var BackToquiz = document.querySelector("#backBtn");
 
 
@@ -156,8 +156,8 @@ function quizOver() {
     quizQuestions.appendChild(inputEl);
 
     var buttonEl = document.createElement("button");
-    buttonEl.setAttribute("type", "Submit");
-    buttonEl.setAttribute("id", "Submit");
+    buttonEl.setAttribute("type", "submit");
+    buttonEl.setAttribute("id", "submit");
     buttonEl.textContent = "Submit";
 
     quizQuestions.appendChild(buttonEl);
@@ -187,7 +187,7 @@ function quizOver() {
             window.location.replace("./index2.html");
         };
     });
-
+}
 
     var clearScore = document.querySelector("#clearScore");
 
@@ -202,17 +202,16 @@ function quizOver() {
 
     if (storedScores !== null) {
 
-        for (var i = 0; i < storedScore.length; i++) {
+        for (var i = 0; i < storedScores.length; i++) {
 
             var liElement = document.createElement("li");
-            liElement.textContent = storedScores[i].userInput + " - " + storedScores[i].score;
+            liElement.textContent = storedScores[i].userInput + " " + storedScores[i].score;
             highScores.appendChild(liElement);
         }
-
     };
 
-    // document.getElementById("clearScore").onclick = clearScore;
-}});
+
+    // document.getElementById("clearScore").onclick = clearScore
 
 
 
