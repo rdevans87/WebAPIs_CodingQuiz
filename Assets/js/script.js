@@ -97,7 +97,7 @@ function compare(event) {
 
     if (userChoice.matches("li")) {
 
-        var divElement = document.createElement("div");
+       var divElement = document.createElement("div");
         divElement.setAttribute("id", "divElement");
 
     if (userChoice.textContent == quiz[quizIndex].answer) {
@@ -117,7 +117,6 @@ function compare(event) {
         render(quizIndex);
     }
     quizQuestions.appendChild(divElement);
-
 
 }
 
@@ -165,10 +164,10 @@ function quizOver() {
             // console.log(inputEl.value)
 
         if (userInput === null) {
-            console.log ("no value enters")
+            console.log ("no value entered")
         } else {
             var finalScore = {
-                userInput: inputEl,
+                userInput: userInput,
                 score: timeLeft
             }
             var storedScores = localStorage.getItem("storedScores")
