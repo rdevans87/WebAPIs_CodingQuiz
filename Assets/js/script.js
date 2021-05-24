@@ -46,8 +46,6 @@ var timeInterval = document.querySelector("#timeInterval");
 var quizQuestions = document.querySelector("#quizQuestions");
 
 
-
-
 var startInterval = document.querySelector(".start-btn");
 //timer starts when button is clicked
 startInterval.addEventListener("click", function () {
