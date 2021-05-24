@@ -186,7 +186,7 @@ function quizOver() {
 var storedScores = localStorage.getItem ("storedScores")
 storedScores = JSON.parse(storedScores);
 
-if (storedScores !== true) {
+if (storedScores !== null) {
 
 for (var i = 0; 1 < storedScore.length; i++) {
 
